@@ -51,6 +51,8 @@ app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
 });
 
-app.listen(5000, () => {
+const PORT = proces.env.PORT || 5000;
+
+app.listen(PORT, () => {
   console.log("server");
 });
