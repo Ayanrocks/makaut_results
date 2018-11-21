@@ -20,7 +20,7 @@ app.post("/result", (req, res) => {
     {
       url: "https://makaut.ucanapply.com/smartexam/public//get-result-details",
       headers: {
-        "X-CSRF-TOKEN": "paPTqqoMgfzS2tQBFolGI5iGpA8ChR95yUKiGzO7",
+        "X-CSRF-TOKEN": "ycIgbvB0caLz4kCTagWZlifgFhGsRFpSVI6Qy5CB",
         "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
         Origin: "https://makaut.ucanapply.com",
         Cookie:
@@ -32,7 +32,7 @@ app.post("/result", (req, res) => {
         Host: "makaut.ucanapply.com"
       },
       form: {
-        _token: "paPTqqoMgfzS2tQBFolGI5iGpA8ChR95yUKiGzO7",
+        _token: "ycIgbvB0caLz4kCTagWZlifgFhGsRFpSVI6Qy5CB",
         p1: "",
         ROLLNO: req.body.roll,
         SEMCODE: req.body.sem,
