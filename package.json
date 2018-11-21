@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Ayanrocks <ayanb1999@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "10.12.0"
+  },
   "scripts": {
     "start": "node index.js"
   },
