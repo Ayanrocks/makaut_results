@@ -18,17 +18,19 @@ app.post("/result", (req, res) => {
 
   request.post(
     {
-      url: "https://makaut.ucanapply.com/smartexam/public//get-result-details",
+      url:
+        "https://makaut.ucanapply.com/smartexam/public//get-result-details",
       headers: {
         "X-CSRF-TOKEN": "ycIgbvB0caLz4kCTagWZlifgFhGsRFpSVI6Qy5CB",
         "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
         Origin: "https://makaut.ucanapply.com",
         Cookie:
-          "XSRF-TOKEN=XSRF-TOKEN=eyJpdiI6InlsVWhnWFVTWURcL1grTEErNm81a2RBPT0iLCJ2YWx1ZSI6IlpsV08wVkNEbm4xd2dkZFhDZWt1QnBFV3M0bTRibURweElKRlwvczU1cUpYRVRZaml4OGdCUXlDSHBVVUdhaktuZlE0ekRWWTZGdEpTZ3YyZllHeVFGQT09IiwibWFjIjoiNjAwMjZkN2QyYmEzOGJmOWQ3MzgzNDQ5MWIxMjlkNTNkMjk0NDFmYWZhNDE3NTIwMDZhYzRlOGM2ZTM0OGVhNSJ9; examination_session=eyJpdiI6ImZXdXg4RTlzWGJySUQ5eGxvVEVFOFE9PSIsInZhbHVlIjoiV1R5RVdhZm5aUitqaFUyanV1MzZwVzl3a2wyY3ZnNlIxYUdtRmhsaDNoKzYyWllPSGpjXC80V2NjOWZOUUJVN0NcL1Vod3N6RmhOTHphQ2VRTXRxWlZHQT09IiwibWFjIjoiNjg1OGIwNjE2MTI5ZDYxMTM3YWZiOTBiZTAyZGU3YmQ0Zjk2YWQ0Y2ZiNTkwMDUyNjdmMzQ0NmViNjYyZjAwNCJ9",
+          "XSRF-TOKEN=eyJpdiI6ImYrcWdXTmFtTFwvS0txUVZwSnVcLzRNQT09IiwidmFsdWUiOiIydjdvWDhRcHo2VmVHNXk1NWlEczJiOUpOaVwvZHIxV2xQXC9VK0FyWWNtNUY1T1Jpb0ZtWkpXXC9zXC9Da1wvNU9xR3l5Q3B5UlwvUzZtZktYOGlYenorXC9FOXc9PSIsIm1hYyI6IjE5M2I3MDA2MThkNTY5NzNlOWNlZDFjM2FhMGU2NTYxZDhmZDlhNzJhM2I3YWNlM2FlMmE5MzdmZGM5MGRiY2YifQ%3D%3D; examination_session=eyJpdiI6ImtWY2FaTVhVdzVNVThkRkJrNkQ2UUE9PSIsInZhbHVlIjoiK09FUnlcL0JrakVyK3dNYkNYVThqYXE1WWtqR1pVQlJqc2VIaW0xdklyUlwvQ1d6cmVzQ3p4K1BPSWlHeHhmeFhjb2RpMGpMY2lyR3pqcnlOVHYyQ3BzQT09IiwibWFjIjoiM2FlZjU1NmRmZWI0ZDJlMDk5ZDI0ZTZhNWNlNWViZGQ4YjVkMTljZjlkNzI1NmZhZGFiZTg1NDdjYTJiYzIwZCJ9",
         "X-Requested-With": "XMLHttpRequest",
         "User-Agent":
           "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36",
-        Referer: "https://makaut.ucanapply.com/smartexam/public/result-details",
+        Referer:
+          "https://makaut.ucanapply.com/smartexam/public/result-details",
         Host: "makaut.ucanapply.com"
       },
       form: {
