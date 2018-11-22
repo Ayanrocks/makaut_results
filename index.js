@@ -44,8 +44,7 @@ app.post("/result", (req, res) => {
 
   processPy.on("exit", code => {
     console.log("process ended with" + code);
-    // console.log(token);
-    // console.log(cookie);
+    console.log(req.body.roll + " checked  " + req.body.sem);
 
     request.post(
       {
