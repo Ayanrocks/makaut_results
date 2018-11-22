@@ -1,3 +1,0 @@
-web: node index.js
-py: pip install requests
-pybs: pip install bs4 
