@@ -34,7 +34,7 @@ app.post("/result", (req, res) => {
         Host: "makaut.ucanapply.com"
       },
       form: {
-        _token: "ycIgbvB0caLz4kCTagWZlifgFhGsRFpSVI6Qy5CB",
+        _token: "9Y6SaWJnWcUcJlj5v0BYtZlbrt2g95YWepgMWOdA",
         p1: "",
         ROLLNO: req.body.roll,
         SEMCODE: req.body.sem,
