@@ -29,10 +29,7 @@ let token = "";
 //   });
 // }
 
-//Routes
-
-app.post("/result", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
+function runpy(roll,sem){
   console.log("Running PY file");
   const processPy = spawn("python3", ["./cookie.py"]);
   processPy.stdout.on("data", data => {
@@ -43,8 +40,32 @@ app.post("/result", (req, res) => {
   });
 
   processPy.on("exit", code => {
-    console.log("process ended with" + code);
-    console.log(req.body.roll + " checked  " + req.body.sem);
+    console.log("process ended with " + code);
+    console.log("Token Updated, Cookie Updated");
+  });
+}
+
+runpy();
+setInterval(runpy, 1000*60*15);
+
+
+//Routes
+
+app.post("/result", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  console.log(req.body.roll + " checked  " + req.body.sem);
+
+  // const processPy = spawn("python3", ["./cookie.py"]);
+  // processPy.stdout.on("data", data => {
+  //   let val = data.toString();
+  //   val = val.split("\n");
+  //   token = val[0];
+  //   cookie = val[1];
+  // });
+
+  // processPy.on("exit", code => {
+  //   console.log("process ended with" + code);
+  //   console.log(req.body.roll + " checked  " + req.body.sem);
 
     request.post(
       {
@@ -75,7 +96,7 @@ app.post("/result", (req, res) => {
         res.send(data);
       }
     );
-  });
+
 });
 
 app.use(express.static("client/dist"));

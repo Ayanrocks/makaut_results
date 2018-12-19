@@ -1,37 +1,49 @@
 <template>
-<div>
-    <Navbar /> 
-    <div class="container">
-        <div class="row">
-          <InputForm @formSubmit="formSubmit"/>
-          <div class="card mr-2" v-show="result">
-            <div class="card-body" v-html="result"></div>
-          </div>
-        </div>
-    </div>    
+  <div class="root">
+    <Navbar/>
+    <div class="container mx-auto">
+      <div class="row">
+        <InputForm @formSubmit="formSubmit"/>
+        <p class="text-center text-danger">
+          <em>For Generating PDF you need to visit makautexam.net</em>
+        </p>
+        <hr>
+      </div>
+    </div>
+    <rotate-loader class="text-center" :loading="loading" size="15px"></rotate-loader>
 
-</div>
+    <div class="img-fluid" v-show="result">
+      <div class="card-body" v-html="result"></div>
+    </div>
+    <Footer :class="{'fixed-bottom' : !result }"/>
+  </div>
 </template>
 
 
 <script>
 import Navbar from "./components/Navbar.vue";
 import InputForm from "./components/InputForm.vue";
+import Footer from "./components/Footer.vue";
 import axios from "axios";
+import rotateLoader from "vue-spinner/src/RotateLoader";
 
 export default {
   name: "App",
   data() {
     return {
-      result: ""
+      result: "",
+      loading: false
     };
   },
   components: {
     Navbar,
-    InputForm
+    InputForm,
+    Footer,
+    rotateLoader
   },
   methods: {
     formSubmit(data) {
+      this.loading = true;
       axios
         .post("/result", {
           roll: data.roll,
@@ -39,6 +51,7 @@ export default {
         })
         .then(res => {
           var body = JSON.parse(res.data.body);
+          this.loading = false;
           this.result = body.html;
         });
     }
@@ -48,4 +61,13 @@ export default {
 
 
 <style scoped>
+.root {
+  height: 100vh;
+}
+
+v-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
 </style>

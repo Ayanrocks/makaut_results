@@ -1,6 +1,6 @@
 {
   "name": "makaut_result",
-  "version": "0.1.0",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "vue-spinner": "^1.0.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.4",
