@@ -29,7 +29,7 @@ let token = "";
 //   });
 // }
 
-function runpy(roll,sem){
+function runpy(roll, sem) {
   console.log("Running PY file");
   const processPy = spawn("python3", ["./cookie.py"]);
   processPy.stdout.on("data", data => {
@@ -46,8 +46,7 @@ function runpy(roll,sem){
 }
 
 runpy();
-setInterval(runpy, 1000*60*15);
-
+setInterval(runpy, 1000 * 20);
 
 //Routes
 
@@ -67,36 +66,32 @@ app.post("/result", (req, res) => {
   //   console.log("process ended with" + code);
   //   console.log(req.body.roll + " checked  " + req.body.sem);
 
-    request.post(
-      {
-        url:
-          "https://makaut.ucanapply.com/smartexam/public//get-result-details",
-        headers: {
-          "content-type":
-            "application/x-www-form-urlencoded; charset=UTF-8",
-          Origin: "https://makaut.ucanapply.com",
-          Cookie:cookie,
-          "X-Requested-With": "XMLHttpRequest",
-          "User-Agent":
-            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36",
-          Referer:
-            "https://makaut.ucanapply.com/smartexam/public/result-details",
-          Host: "makaut.ucanapply.com"
-        },
-        form: {
-          _token: token,
-          p1: "",
-          ROLLNO: req.body.roll,
-          SEMCODE: req.body.sem,
-          examtype: "result-details",
-          all: ""
-        }
+  request.post(
+    {
+      url: "https://makaut.ucanapply.com/smartexam/public//get-result-details",
+      headers: {
+        "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+        Origin: "https://makaut.ucanapply.com",
+        Cookie: cookie,
+        "X-Requested-With": "XMLHttpRequest",
+        "User-Agent":
+          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36",
+        Referer: "https://makaut.ucanapply.com/smartexam/public/result-details",
+        Host: "makaut.ucanapply.com"
       },
-      (err, data) => {
-        res.send(data);
+      form: {
+        _token: token,
+        p1: "",
+        ROLLNO: req.body.roll,
+        SEMCODE: req.body.sem,
+        examtype: "result-details",
+        all: ""
       }
-    );
-
+    },
+    (err, data) => {
+      res.send(data);
+    }
+  );
 });
 
 app.use(express.static("client/dist"));
