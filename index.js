@@ -6,14 +6,6 @@ const bodyParser = require("body-parser");
 const helmet = require("helmet");
 const spawn = require("child_process").spawn;
 
-const https = require("https"),
-  fs = require("fs");
-
-const options = {
-  key: fs.readFileSync("/etc/letsencrypt/live/makaut.ml/privkey.pem"),
-  cert: fs.readFileSync("/etc/letsencrypt/live/makaut.ml/fullchain.pem")
-};
-
 app.use(helmet());
 app.use(bodyParser.json()); // to support JSON-encoded bodies
 app.use(
@@ -111,8 +103,6 @@ app.get("*", (req, res) => {
 });
 
 const PORT = process.env.PORT || 4000;
-
-https.createServer(options, app).listen(8080);
 
 app.listen(PORT, () => {
   console.log("server");
