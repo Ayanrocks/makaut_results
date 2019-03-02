@@ -112,7 +112,7 @@ app.get("*", (req, res) => {
 
 const PORT = process.env.PORT || 4000;
 
-server.setSecure(credentials);
+https.createServer(options, app).listen(8080);
 
 app.listen(PORT, () => {
   console.log("server");
