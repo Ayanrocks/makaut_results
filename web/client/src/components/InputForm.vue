@@ -39,7 +39,6 @@ export default {
         roll: this.roll,
         sem: this.sem
       };
-      console.log(this.roll + " " + this.sem + " from form");
       this.$emit("formSubmit", data);
     }
   }

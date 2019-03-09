@@ -50,9 +50,8 @@ export default {
           sem: data.sem
         })
         .then(res => {
-          var body = JSON.parse(res.data.body);
           this.loading = false;
-          this.result = body.html;
+          this.result = res.data;
         });
     }
   }
