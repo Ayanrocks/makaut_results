@@ -20,16 +20,6 @@ app.use(bodyParser.json());
 let cookie = "";
 let token = "";
 
-// async function runpy() {
-//   console.log("Running PY file");
-//   const processPy = await spawn("python3", ["./cookie.py"]);
-//   processPy.stdout.on("data", data => {
-//     let val = data.toString();
-//     val = val.split("\n");
-//     token = val[0];
-//     cookie = val[1];
-//   });
-// }
 
 function runpy(roll, sem) {
   console.log("Running PY file");
@@ -48,25 +38,12 @@ function runpy(roll, sem) {
 }
 
 runpy();
-setInterval(runpy, 1000 * 20);
 
 //Routes
 
 app.post("/result", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   console.log(req.body.roll + " checked  " + req.body.sem);
-
-  // const processPy = spawn("python3", ["./cookie.py"]);
-  // processPy.stdout.on("data", data => {
-  //   let val = data.toString();
-  //   val = val.split("\n");
-  //   token = val[0];
-  //   cookie = val[1];
-  // });
-
-  // processPy.on("exit", code => {
-  //   console.log("process ended with" + code);
-  //   console.log(req.body.roll + " checked  " + req.body.sem);
 
   request.post(
     {
