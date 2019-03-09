@@ -1,0 +1,6 @@
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): makaut.ucanapply.com:443
+DEBUG:urllib3.connectionpool:https://makaut.ucanapply.com:443 "GET /smartexam/public/result-details HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2019 14:49:33] "GET / HTTP/1.1" 200 -
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): makaut.ucanapply.com:443
+DEBUG:urllib3.connectionpool:https://makaut.ucanapply.com:443 "GET /smartexam/public/result-details HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2019 14:49:42] "GET / HTTP/1.1" 200 -
