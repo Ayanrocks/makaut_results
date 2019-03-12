@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: makaut-python-api
+  labels: 
+    app: makaut-python-api                                 
+spec:                                                
+  containers:
+    - image: ayanrocks/makaut_python_api 
+      name: makaut-python-api                              
+      ports:
+        - containerPort: 4001
+      env:
+      - name: FLASK_APP
+        value: index.py   

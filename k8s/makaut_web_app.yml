@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod                                            # 1
+metadata:
+  name: makaut-web-app
+  labels: 
+    app: makaut-web
+spec:                                                # 3
+  containers:
+    - image: ayanrocks/makaut_web_app
+      name: makaut-web-app
+      ports:
+        - containerPort: 4000
+
+    - image: redis
+      name: redis
+      ports:
+        - containerPort: 6379  

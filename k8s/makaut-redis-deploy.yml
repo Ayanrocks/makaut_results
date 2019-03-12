@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: makaut-redis
+  labels: 
+    app: makaut-redis                                 
+spec:                                                
+  containers:
+    - image: redis 
+      name: makaut-redis                              
+      ports:
+        - containerPort: 6379  

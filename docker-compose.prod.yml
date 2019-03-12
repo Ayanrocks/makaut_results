@@ -1,9 +1,9 @@
-version: "3.6"
+version: "3"
 
 services:
   # Python API
   python-api:
-    build: ./python_api
+    image: ayanrocks/makaut_python_api
     deploy:
       replicas: 2
     ports:
@@ -13,7 +13,7 @@ services:
     restart: on-failure
 
   web1:
-    build: ./web
+    image: ayanrocks/makaut_web_app
     deploy:
       replicas: 3
     ports:

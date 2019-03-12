@@ -36,7 +36,7 @@ var cookie = "";
 var token = "";
 
 function updateToken() {
-  request.get("http://python-api:5000/", (err, res, body) => {
+  request.get('http://10.103.68.32:80', (err, res, body) => {
     if (!err) {
       body = JSON.parse(body);
       token = body.token;
@@ -47,8 +47,8 @@ function updateToken() {
   });
 }
 
-function putInCache(roll, html) {
-  client.set(roll, html, 'EX', 7200);
+function putInCache(key, html) {
+  client.set(key, html, 'EX', 7200);
 }
 
 //Routes
@@ -56,9 +56,9 @@ function putInCache(roll, html) {
 app.post("/result", (req, res) => {
   winston.info(req.body.roll + " checked " + req.body.sem);
 
-  client.exists(req.body.roll, (err, data) => {
+  client.exists(req.body.roll+req.body.sem, (err, data) => {
     if (data) {
-      client.get(req.body.roll, (err, html) => {
+      client.get(req.body.roll+req.body.sem, (err, html) => {
         res.send(html);
       });
     } else {
@@ -90,7 +90,7 @@ app.post("/result", (req, res) => {
           data = JSON.parse(data.body);
           const html = data.html;
           if (html !== undefined) {
-            putInCache(req.body.roll, html);
+            putInCache(req.body.roll+req.body.sem, html);
           }
           res.send(html);
         }

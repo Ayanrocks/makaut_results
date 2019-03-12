@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment                                        
+metadata:
+  name: makaut-deployment
+spec:
+  replicas: 5                                           
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate                                  
+    rollingUpdate: 
+      maxUnavailable: 2                                
+      maxSurge: 2
+                                         
+  template:                                             
+    metadata:
+      name: makaut-web-app
+      labels: 
+        app: makaut-web
+    spec:                                               
+      containers:
+        - image: ayanrocks/makaut_web_app:1.2.0
+          name: makaut-web-app
+          ports:
+            - containerPort: 4000
+          env:
+            - name: PYTHON_URL
+              value: "http://makaut-python-api"

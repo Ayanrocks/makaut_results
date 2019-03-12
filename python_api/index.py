@@ -21,4 +21,5 @@ def log_it():
 @app.route('/')
 def index():
     log_it()
+    print("l")
     return jsonify(get_cookie())
